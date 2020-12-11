@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:9296
+#    zipkin:
+#      url:http://localhost:8080:9411/
+#      
+         

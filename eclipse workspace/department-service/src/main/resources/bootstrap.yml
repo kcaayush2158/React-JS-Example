@@ -1,0 +1,10 @@
+
+    
+spring:
+  cloud:
+    config:  
+      enabled: true
+      uri:
+      - http://localhost:9296
+#   zipkin:
+#    base-url: http://127.0.0.1:9411/

@@ -1,0 +1,29 @@
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: USER-SERVICE
+        uri: lb://USER-SERVICE
+        predicates: 
+          - Path=/users/**
+        filters:
+        - name: Hystrix
+          args:
+            name: USER-SERVICE
+            fallbackuri: forward:/userServiceFallBack
+    
+      - id: DEPARTMENT-SERVICE
+        uri: lb://DEPARTMENT-SERVICE
+        predicates:
+          - Path=/departments/**  
+        filters:
+        - name: Hystrix
+          args:
+            name: DEPARTMENT-SERVICE
+            fallbackuri: forward:/departmentServiceFallBack
+
+
+
+ 
