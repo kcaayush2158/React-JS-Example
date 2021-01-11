@@ -1,0 +1,106 @@
+
+<style>
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+        background-color: white;
+        /* background-color: #007bff; */
+    }
+    #label-people-you-like{
+        color: #1e1e1e;
+        line-height: 26px;
+        font-weight: 400;
+        font-family: "Source Sans Pro", sans-serif;
+    }
+    #label-intro{
+        color: #949aa6;
+        font-family: "Source Sans Pro", sans-serif;
+    }
+
+    .shine {
+        background: #ffffff;
+        background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+        background-repeat: no-repeat;
+        width: auto;
+        display: inline-block;
+        position: relative;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-fill-mode: forwards;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-name: placeholderShimmer;
+        -webkit-animation-timing-function: linear;
+    }
+    box {
+        height: 104px;
+        width: 100px;
+    }
+    lines {
+        height: 10px;
+        margin-top: 10px;
+        width: 200px;
+    }
+</style>
+<app-header></app-header>
+<div class="container-fluid mt-5">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-2">
+              <app-side-nav></app-side-nav>
+            </div>
+            <div class="col-md-10 "  >
+                <nav class="navbar navbar-light "  id="navbar" >
+                    <a class="navbar-brand mb-0 h1" href="#">Visits</a>
+                    <ul class="nav  justify-content-center " >
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <div class="row">
+                                        <ul class="nav nav-pills mb-3"  id="pills-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="pills-visits-tab" data-toggle="pill" href="#pills-visits" role="tab" aria-controls="pills-visits" aria-selected="true" > Visits <span class="badge badge-secondary ml-1" id="visits"></span></a>
+                                            </li>
+                                        </ul>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+
+                    <!-- Button trigger modal -->
+                </nav>
+                <div class="container-fluid">
+                    <h4 class="mt-4" id="label-people-you-like" >People who visited your Profile<br>
+                        <small class="mt-2" id="label-intro" >Send an intro message to them!</small></h4>
+                    <div class="row">
+                        <div class="row" style="float: left;">
+                            <div  id="container-users-visits" *ngFor="let user of users">
+                                <div class="row" style="float: left;">   
+                            <a href= "/user/profile/{{user.id}}`" id="card-href " style="list-style-type:none;text-decoration:none;" >  
+                             <div class="card bg-light  mb-3 mr-5  ml-5 mt-2 "  id="custom-card-design"> 
+                            <img class="card-img-top image-thumbnail"   id="card-img" src="{{ users.profilePhoto}} "  alt="Card image cap"> 
+                            <div class="card-body" >
+                            <h5 class="card-title "  >{{ users.receivedUser.firstName}} {{ users.receivedUser.lastName}} {{ users.receivedUser.aboutMe.age}} </h5>
+                            <p class="card-text" id="card-bio" >{{ users.receivedUser.aboutMe.bio}}</p>
+                             </div>
+                               </div>
+                               
+                             </a>
+                             </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ajax-loader">
+                    <photo class="shine" id="shimmer-photo"></photo>
+                    <photo class="shine" id="shimmer-photo"></photo>
+                    <photo class="shine" id="shimmer-photo"></photo>
+                    <photo class="shine" id="shimmer-photo"></photo>
+                    <photo class="shine" id="shimmer-photo"></photo>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script  type="application/javascript" src="visits.js"></script>
