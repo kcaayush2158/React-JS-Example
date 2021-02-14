@@ -3,20 +3,17 @@
   <div class="col-md-12">
     <div class="row">
       <div class="col-md-2">
-          <app-side-nav></app-side-nav>
+        <app-side-nav></app-side-nav>
       </div>
-      <div class="col-md-8 ">
-        <nav class="navbar navbar-light " id="navbar">
+      <div class="col-md-8">
+        <nav class="navbar navbar-light" id="navbar">
           <a class="navbar-brand mb-0 h1" href="#">Public Rooms</a>
-          <ul class="nav  justify-content-center ">
+          <ul class="nav justify-content-center">
             <div class="col-md-12">
               <div class="row">
-                <div class="col-md-12 ">
+                <div class="col-md-12">
                   <div class="row">
-                    <li class="nav-item ">
-                      <a class="nav-link active" href="#" id="nav-link-profile"><i class="fas fa-id-badge"></i>
-                        Profiles <span class="badge badge-primary ml-1"></span> </a>
-                    </li>
+            
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                       <li class="nav-item">
                         <a class="nav-link active" id="pills-all-rooms-tab" data-toggle="pill" href="#pills-all-rooms"
@@ -29,20 +26,17 @@
                             class="badge badge-secondary ml-1" id="my-chatroom"></span></a>
                       </li>
                     </ul>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#" id="nav-link-online-user"> <i class="fas fa-user-friends"></i>
-                        Online Users <span class="badge badge-success ml-1" th:text="${activeuser}"> </span></a>
-                    </li>
-
+                  
                   </div>
                 </div>
               </div>
             </div>
           </ul>
-          <div class="my-2 ">
+          <div class="my-2">
             <div class="row">
-              <div class=" mr-3">
-                <input type="text" class="form-control mr-4" id="search_box" name="search_box" placeholder="Room Name">
+              <div class="mr-3">
+                <input type="text" class="form-control mr-4" id="search_box" name="search_box"
+                  placeholder="Room Name" />
               </div>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-light mr-3" data-toggle="modal" data-target="#staticBackdrop">
@@ -55,20 +49,18 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title text-center" id="staticBackdropLabel">Chat Room </h5>
+                      <h5 class="modal-title text-center" id="staticBackdropLabel">Chat Room</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
-                      <div id="alert">
-                      </div>
-                      <div>
-                      </div>
+                      <div id="alert"></div>
+                      <div></div>
                       <form action="/api/chatroom/create" id="form-room" method="POST">
                         <div class="form-group">
                           <label for="roomName">Room Name : </label>
-                          <input type="text" class="form-control" name="chatRoomName" id="roomName">
+                          <input type="text" class="form-control" name="chatRoomName" id="roomName" />
                         </div>
                         <div class="form-group">
                           <label for="roomDescription">Room Description :</label>
@@ -88,88 +80,108 @@
                         <button class="btn btn-primary btn-block" type="submit">Save</button>
                       </form>
                     </div>
-
                   </div>
                 </div>
               </div>
-
-
             </div>
           </div>
         </nav>
-      </div>
 
+
+      </div>
 
       <div class="container">
-        <div class="row  mt-3 offset-md-10">
-          <h6 style="font-size: 12px;" class="mr-1">Private : </h6> <img class="mr-3"
+        <div class="row mt-3 offset-md-10">
+          <h6 style="font-size: 12px" class="mr-1">Private :</h6>
+          <img class="mr-3"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Location_dot_purple.svg/1024px-Location_dot_purple.svg.png"
-            height="15">
-          <h6 style="font-size: 12px;" class="mr-1">Public:</h6><img
+            height="15" />
+          <h6 style="font-size: 12px" class="mr-1">Public:</h6>
+          <img
             src="data:image/png;base64,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"
-            height="15">
+            height="15" />
         </div>
       </div>
 
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="pills-all-rooms" role="tabpanel"
-          aria-labelledby="pills-all-rooms-tab">
-          <div class="col-md-12">
-            <div class="row results">
+     <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="pills-all-rooms" role="tabpanel" aria-labelledby="pills-all-rooms-tab">
+         
+            <div class="row">
+            <span *ngFor="let room of allRooms">
+              
+                <div class="card mb-2 mr-3 ml-2 mt-5" id="custom-card-design">
+                  <div class="card-body">
+                    <h5 class="card-title text-center mb-2">{{ room.chatRoomName }}</h5>
+                    <p class="mt-4 mb-5" id="chatDescription">{{ room.chatRoomDescription }}</p>
+
+                    <form action="/chatroom/public/{{ room.chatRoomId }}" method="GET">
+                      <button class="btn btn-block mt-4 mb-2" id="btn-join-room-public" type="submit">
+                        <b> <i class="fa fa-plus-circle" aria-hidden="true"></i> Join Room</b>
+                      </button>
+                    </form>
+
+
+                  </div>
+                </div>
+              </span>
+            </div>
+            
+        </div>
+      </div>
+ 
+
+      <div class="tab-pane fade" id="pills-my-room" role="tabpanel" aria-labelledby="pills-my-rooms-tab">
+        <div class="" *ngFor="let room of myRooms">
+          <div class="card mb-2 mr-3 ml-2 mt-5" id="custom-card-design">
+            <div class="card-body">
+              <h5 class="card-title text-center mb-2">{{ room.chatRoomName }}</h5>
+              <p class="mt-4 mb-5" id="chatDescription">{{ room.chatRoomDescription }}</p>
+
+              <form action="/chatroom/public/{{ room.chatRoomId }}" method="GET">
+                <button class="btn btn-block mt-4 mb-2" id="btn-join-room-public" type="submit">
+                  <b> <i class="fa fa-plus-circle" aria-hidden="true"></i> Join Room</b>
+                </button>
+              </form>
             </div>
           </div>
-
         </div>
-        <div class="tab-pane fade" id="pills-my-room" role="tabpanel" aria-labelledby="pills-my-rooms-tab">
-          <div class="row">
-            <div *ngFor=" let rooms of rooms">
-              <div class="col-md-4">
-                <div class="card  mb-3 mr-5  ml-5 mt-5 " id="custom-card-design">
-                  <div class="card-body">
-                    <div class="col-md-12">
-                      <div class="row">
-                        <div class="col-md-10">
-                          <h5 class="card-title text-center"></h5>
-                        </div>
-                        <div class="col-md-2">
-                          <form id="form-delete" method="POST">
-                            <button class='btn btn-sm btn-light btn-block mt-4' type='submit'><i
-                                class="fa fa-times-circle"></i></button>
-                          </form>
-                        </div>
+      </div>
+    
+
+
+      <!-- <div class="chatrooms mt-5" id="chatrooms"></div>
+        <div class="rooms">
+          <div
+            class="search-result"
+            infiniteScroll
+            [infiniteScrollDistance]="2"
+            [infiniteScrollThrottle]="50"
+            (scrolled)="onScrollChatRooms()"
+          >
+            <div class="col-md-12">
+              <div class="row">
+                <div class="container" *ngFor="let room of rooms">
+                  <div class="col-md-4">
+                    <div class="card mb-2 mr-3 ml-2 mt-5" id="custom-card-design">
+                      <div class="card-body">
+                        <h5 class="card-title text-center mb-2">{{ room.chatRoomName }}</h5>
+                        <p class="mt-4 mb-5" id="chatDescription">{{ room.chatRoomDescription }}</p>
+    
+                        <form action="/chatroom/public/{{ rooms.chatRoomId }}" method="GET">
+                          <button class="btn btn-block mt-4 mb-2" id="btn-join-room-public" type="submit">
+                            <b> <i class="fa fa-plus-circle" aria-hidden="true"></i> Join Room</b>
+                          </button>
+                        </form>
                       </div>
                     </div>
-                    <p class="card-text  mb-5" id="chatDescription"></p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <div class="chatrooms mt-5" id="chatrooms">
-        </div>
-        <div class="rooms">
-          <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"   (scrolled)="onScrollChatRooms()">
-          <div class="container" *ngFor="let room of rooms">
-            <div class="col-md-12">
-
-              <div class="row">
-                <div class="col-md-4">
-    
-                </div>
-                <div class="col-md-6">
-                  <p class="card-text"> {{room.chatRoomName}}</p>
-                  <p class="card-body">{{room.chatRoomDescription}}</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-      <div class="col-md-2 ">
+      <div class="col-md-2">
         <div class="container-fluid">
           <div class="container-shout-out">
             <div class="shout-out-header">
@@ -180,40 +192,35 @@
             <div class="shout-out-footer">
               <form action="/api/chatrooms/shoutout/save" method="POST" id="form-shout-out">
                 <input maxlength="255" rows="2" class="form-control mb-3" placeholder="Whats up?" id="message"
-                  name="message">
-                <button class="btn btn-warning btn-block btn-outline-warning" type="submit"><i class="fa fa-bullhorn"
-                    id="form-shout-out-button"></i> Shout </button>
+                  name="message" />
+                <button class="btn btn-warning btn-block btn-outline-warning" type="submit">
+                  <i class="fa fa-bullhorn" id="form-shout-out-button"></i> Shout
+                </button>
               </form>
             </div>
             <div class="shout-out-body">
               <ul id="shoutout-message">
-                <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
-                  (scrolled)="onScroll()">
-                  
-                
-          
-                  </div>
-                  
-            
+                <div class="search-result"></div>
+
                 <div class="row pb-5">
                   <div class="col-md-12 p-5">
-                    <ngx-spinner bdOpacity=0.9 bdColor="" size="default" color="#581f87" type="ball-pulse-sync"
+                    <ngx-spinner bdOpacity="0.9" bdColor="" size="default" color="#581f87" type="ball-pulse-sync"
                       [fullScreen]="false"></ngx-spinner>
                   </div>
                 </div>
               </ul>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
+</div>
+  
 
   <div *ngIf="!notEmptyPost" class="row pb-5">
     <div class="col-md-1 d-flex hustify-content-center">
       <div class="text-muted h6 alert alert-secondary p-2">No more item to show</div>
     </div>
   </div>
+

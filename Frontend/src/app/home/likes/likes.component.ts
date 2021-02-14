@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LikesComponent implements OnInit {
 
-  constructor() { }
+
+  likes:any=[];
+  constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
+    this.loadVisits();
+  }
+
+  loadVisits(){
+    var url ="http://localhost:8080/api/v1/likes/all";
+    this.http.get(url,{responseType: 'json'}).subscribe((data)=>{
+      this.likes=data;
+      console.log(data);
+    });
+  
   }
 
 }

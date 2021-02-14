@@ -54,8 +54,19 @@
                             <small class="mt-2" id="label-intro">Send an intro message to them!</small></h4>
                         <div class="row">
                             <div class="row" style="float: left;">
-                                <div id="container-users-likes">
-
+                                <div id="container-users-likes" *ngFor="let like of likes">
+                                    <div class="row" style="float: left;">   
+                                        <a href= "/user/profile/{{like.id}}`" id="card-href " style="list-style-type:none;text-decoration:none;" >  
+                                            <div class="card bg-light  mb-3 mr-5  ml-5 mt-2 "  id="custom-card-design"> 
+                                            <img class="card-img-top image-thumbnail"   id="card-img" src="{{ user.profilePhoto}} "  alt="Card image cap"> 
+                                               <div class="card-body" >
+                                                <h5 class="card-title "  >{{ like.receivedUser.firstName}} {{ like.receivedUser.lastName}} {{ like.receivedUser.aboutMe.age}} </h5>
+                                               <p class="card-text" id="card-bio" >{{ like.receivedUser.aboutMe.bio}}</p>
+                                           </div>
+                                        </div>
+                                  
+                                       </a>
+                                </div>
                                 </div>
                             </div>
                         </div>

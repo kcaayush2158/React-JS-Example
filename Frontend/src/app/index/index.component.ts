@@ -14,7 +14,7 @@ export class IndexComponent implements OnInit {
   _userSearchModel = new Usersearch('','default',18,80);
 
 
-  public user : any = SocialUser;
+
   private loggedIn :boolean;
 
   //socail login 
