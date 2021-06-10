@@ -1,0 +1,26 @@
+<h4 class="mt-4" id="label-people-you-like">People who like you<br>
+    <small class="mt-2" id="label-intro">Send an intro message to them!</small></h4>
+    
+<div id="container-users-visits" *ngFor="let user of likes">
+    <div class="row" style="float: left;">
+        <a routerLink="/profile/{{user.likedBy.username}}" id="card-href "
+            style="list-style-type:none;text-decoration:none;">
+            <div class="card bg-light  mb-3 mr-5  ml-5 mt-2 " id="custom-card-design">
+                <img class="card-img-top image-thumbnail" id="card-img"
+                    src="{{ user.likedBy.profilePhoto}} " alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title ">{{ user.likedBy.firstName}} {{
+                        user.likedBy.lastName}} {{ user.likedBy.aboutMe.age}}
+                    </h5>
+                    <p class="card-text" id="card-bio">{{ user.likedBy.aboutMe.bio}}
+                    </p>
+                </div>
+            </div>
+
+        </a>
+    </div>
+</div>
+
+<ngx-spinner  size="medium" color="#00C9A7" type="ball-clip-rotate" [fullScreen] = "true">
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>

@@ -1,0 +1,113 @@
+
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand ml-5" href="#">
+      <h3>
+     
+        <b>
+          <span style="color: red;">
+            CUPID 
+          </span>
+          LOVE
+          <img src="" height="100" />
+        </b>
+      </h3>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" [routerLink]="['/home/profiles']" routerLinkActive="router-link-active" role="presentation">
+          <a class="ml-3 text-black nav-bar"> Home</a>
+        </li>
+<div [hidden]="authenticated()">
+
+
+        <li class="nav-item" [routerLink]="['/teams']" routerLinkActive="router-link-active" role="presentation">
+          <a class="ml-3 text-black nav-bar">Teams</a>
+        </li>
+      </div>
+
+        <div [hidden]="!authenticated()">
+          <li class="nav-item" [routerLink]="['/inbox/u/1/1']" routerLinkActive="router-link-active" class="nav-item"
+            role="presentation">
+            <a class="ml-3 text-black nav-bar"> Message <span class="badge badge-danger" id="unread-message"></span>
+            </a>
+          </li>
+        </div>
+      </ul>
+
+      <div [hidden]="!authenticated()">
+        <div class="row">
+          <li class="nav-item ">
+            <button class="btn btn-primary  mt-1 mr-2"   [routerLink]="['/boosts']" routerLinkActive="router-link-active" r> <i class="fas fa-fire-alt"></i> Boost <i class="fa fa-energy"></i></button>
+          </li>
+          <li class="nav-item ">
+            <button class="btn btn-danger   mt-1 mr-2"  routerLinkActive routerLink="/upgrade/basic"><i class="fa fa-plus"></i> Upgrade to Premium</button>
+          </li>
+     
+          <li class="nav-item dropdown">
+            <a aria-expanded="false" (click)="loadNotification()" role="button" data-toggle="dropdown" id="notifications" aria-haspopup="true">
+              <button class="btn btn-light btn-lg mr-3" id="notification-button">
+                <b><i class="fas fa-bell" id="notification-number" [innerText]="countNotification"> </i> </b>
+              </button>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="notifications" id="dropdown-menu-notifications">
+              <h3 class="text-center">Notifications</h3>
+              <hr />
+              <div id="container-notification" class="container-notification"
+                *ngFor="let notification of userNotification ">
+                <div class="container-fluid">
+                  <div class="col-md-12">
+                    <a routerLink="/profile/{{ notification.user.username }}" class="custom-card"
+                      style="text-decoration: none; color: #313437;">
+                      <div class="row">
+                        <div class="col-md-0 ">
+                          <img height="60" src="{{notification.user.profilePhoto}}" width="50"
+                            style=" border-radius: 50%;">
+                        </div>
+                        <div class="col-md-9 col-md-offset-2">
+                          <div class="notification-head">
+
+                          </div>
+                          <p><b>{{ notification.message }}</b></p>
+                          <time class="timeago" datetime="2021-05-12T11:12:56.000+0000"></time>
+                        </div>
+                      </div>
+
+
+                    </a>
+                    <hr>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <!--Search -->
+            <form class="form-inline my-2 my-lg-0" method="get">
+              <input class="form-control mr-sm-2"   name="username" type="search" placeholder="Search"
+                aria-label="Search" />
+              <button class="btn btn-outline-danger my-2 my-sm-0"   type="submit"><span class="fa fa-search"></span>
+                Search</button>
+            </form>
+          </li>
+        </div>
+      </div>
+    </div>
+
+    <div [hidden]="authenticated()">
+      <a class="nav-bar">
+        <button type="button" [routerLink]="['/signup']" routerLinkActive="router-link-active"
+          class="btn btn-link btn-signup" id="btn-signup">
+          Signup
+        </button>
+      </a>
+      <a class="btn action-button mb-1" [routerLink]="['/login']" routerLinkActive="router-link-active" role="button"
+        id="btn-login"><i class="fas fa-sign-in-alt"></i> Login</a>
+    </div>
+  </nav>

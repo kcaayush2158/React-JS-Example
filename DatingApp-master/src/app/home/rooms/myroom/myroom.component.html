@@ -1,0 +1,107 @@
+<nav class="navbar navbar-light mt-5" id="navbar" style="box-shadow: 0 4px 8px 0 rgb(0 0 0 / 8%);">
+  <a class="navbar-brand mb-0 h1 text-bold" href="#">My  Rooms</a>
+  <ul class="nav justify-content-center">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item">
+                <button   routerLink="/rooms/all-rooms" class="text-bold btn btn-light "  routerLinkActive >All Rooms <span class="badge badge-secondary ml-1" ></span></button>
+              </li>
+              <li class="nav-item">
+                <button class="text-bold btn btn-light"  routerLink="/rooms/my-rooms"  routerLinkActive>My Rooms<span class="badge badge-secondary ml-1" id="my-chatroom" [innerText]="myRoomsCount"></span></button>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </ul>
+  <div class="my-2">
+    <div class="row">
+      <div class="mr-3">
+        <input type="text"  [(ngModel)]="text" class="form-control mr-4" id="search_box" name="search_box"  placeholder="Room Name">
+
+      </div>
+ 
+      </div>
+      </div>
+</nav>
+
+<div class="container-fluid ">
+  <div class="col-md-12">
+    <div class="row">
+ 
+      <div *ngIf="myRooms == ' '">
+      
+        <div class ="container mt-5 ml-5">
+          <h1> Create  +Room button to create new room</h1>
+        </div>
+      </div>
+
+      <span *ngFor="let room of myRooms | filter:text  ">
+
+  
+
+        <div class="col-md-12">
+
+   
+
+          <div class="card mb-2 mr-3 ml-2 mt-5 search-results" id="custom-card-design"  
+          infiniteScroll
+          [infiniteScrollDistance]="2"
+          [infiniteScrollThrottle]="10" 
+          
+          >
+
+
+            <div class="card-body">
+              
+              <h5 class="card-title text-uppercase text-center mb-2">{{ room.chatRoomName }}</h5>
+              <p class="mt-4 mb-5" id="chatDescription">{{ room.chatRoomDescription }}</p>
+             
+                <button class="btn btn-danger btn-block mb-1 " (click)="deleteChatRoom(room.chatRoomId)" type="submit">
+
+                  <b> <i class="fa fa-plus-circle"  aria-hidden="true"></i> Delete room</b>
+                </button>
+            
+            <ng-container *ngIf=" room.type == 'PUBLIC'; else elseTemplate">
+              <form routerLink="/rooms/{{ room.chatRoomId }}" method="GET">
+                <button class="btn btn-block  btn-join-room-public"  type="submit">
+                  <b> <i class="fa fa-plus-circle" aria-hidden="true"></i> Join Room</b>
+                </button>
+                
+                </form>
+             </ng-container>
+             <ng-template #elseTemplate>
+              <form routerLink="/rooms/{{ room.chatRoomId }}" method="GET">
+                <button class="btn btn-block btn-join-room-private"  type="submit">
+                  <b> <i class="fa fa-plus-circle" aria-hidden="true"></i> Join Room</b>
+                </button>
+                </form>
+             </ng-template>
+           
+            
+           
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+  <div class="row pb-5">
+    <div class="col-md-12 p-5">
+      <ngx-spinner  size="medium" color="#00C9A7" type="ball-clip-rotate">
+        <p style="font-size: 20px; color: white">Loading...</p>
+      </ngx-spinner>
+    </div>
+  </div>
+
+</div>
+
+
+
+

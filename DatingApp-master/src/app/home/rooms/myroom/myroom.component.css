@@ -1,0 +1,37 @@
+#custom-card-design {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 8%);
+    border-radius: 20px;
+    width: 300px;
+    height: 300px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #222;
+}
+
+#chatDescription {
+    font-size: 18px;
+    font-family: "Source Sans Pro", sans-serif;
+    color: #313437;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 90px;
+}
+
+.btn-join-room-public {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: white;
+
+}
+
+
+.btn-join-room-private {
+    background-color: #7207ff;
+    border-color: #7207ff;
+    color: white;
+}

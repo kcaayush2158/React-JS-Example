@@ -1,0 +1,114 @@
+
+                <div class="container-fluid">
+                    <div class="col-lg-12" id="container-rooms">
+                        <div class="messaging-container">
+                            <div class="messaging-header">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <a routerLink="/rooms/all-rooms">
+                                                <button class="btn btn-lg btn-light" type="submit">
+                                                    <i class="fa fa-arrow-left"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <h4 id="message-header" class="text-center"  >{{users.chatRoomName}}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+
+                            <div class="messaging-body mt-2 mb-2">
+                                <div *ngFor="let user of users">
+                                <div class="messaging-section mb-2 mt-2">
+                                    <div class="row">
+                                     <div class="col-md-6">
+                                        <div *ngIf="user.sender.username != authenticatedUser.username " >
+                                            <div class="col-12">                   
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <div class="message-header">
+                                                            <img src="{{user.sender.profilePhoto}}" style="width:50px;height:50px;object-fit: cover;">
+                                                         </div>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <div class="message-body ml-2" id="message-body-receiver">
+                                                                <p> <b>{{user.sender.firstName}}</b> : {{user.message}}</p>
+                                                             </div>
+                                                        </div>
+                                        
+                                       
+                                                     </div>
+                                                 </div>
+                                            </div>
+                                        </div>
+                                     <div class="col-md-6">
+                                        <div *ngIf="user.sender.username == authenticatedUser.username ">
+                                            <div class="col-12">                   
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <div class="message-body ml-2" id="message-body-sender">
+                                                        <p> <b>{{user.sender.firstName}} </b>: {{user.message}}</p>
+                                                     </div>
+                                                  </div>
+                                              
+                                            <div class="col-md-2">
+                                                <div class="message-header">
+                                                    <img src="{{user.sender.profilePhoto}}" style="width:50px;height:50px;object-fit: cover;">
+                                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
+                                        </div>
+                                    
+                                        
+                                    </div>
+                                    </div>
+
+                                    
+                                  
+                                </div>
+                            </div>
+                            </div>
+                            <hr />
+                         
+
+                            <div class="messaging-footer">
+                                <div class="col-lg-12">
+                              
+
+                                    <div class="col-lg-10 col-md-2 offset-md-1">
+                                        <form method="POST" id="form-message">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-10">
+                                                            <input name="message" type="text"
+                                                                class="form-control form-control-lg" id="message"
+                                                                placeholder="Type message" [(ngModel)]="message" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <button class="btn btn-light" id="btn-message" type="submit"
+                                                                (click)="sendMessage()">
+                                                                <i class="fa fa-send"></i>Send
+                                                            </button>
+                                                            {{message}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+<ngx-spinner size="medium" color="#00C9A7" type="ball-clip-rotate">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
