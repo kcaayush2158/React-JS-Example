@@ -167,7 +167,7 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
-
+    this.user= this.localStorage.retrieve('user');
     this.storage.change()
         .subscribe(uploads => this.uploads = uploads);
 
@@ -181,7 +181,7 @@ export class ProfileComponent implements OnInit {
     // });
 
 
-    this.user= this.localStorage.retrieve('user');
+
     this.loadTopic();
 
     this.loadAuthenticatedUserPhotoes();
