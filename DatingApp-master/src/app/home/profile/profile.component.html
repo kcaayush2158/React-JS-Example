@@ -284,18 +284,18 @@
 
                                                                                 <div class="form-group">
                                                                                     <label for="username">Username: </label>
-                                                                                    <input formControlName="username"  value="{{user.username}}" [class.is-valid]="registerFormControl.username.valid && registerFormControl.username.untouched" pattern="^((?!.*[^a-zA-Z\d])(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{5,20})$" [class.is-invalid]="registerFormControl.username.invalid && registerFormControl.username.touched" name="username" id="username" type="text" class="form-control mb-2 form-control-lg" autofocus required />
+                                                                                 
+                                                                                    <input formControlName="username"  value="{{user.username}}"  required [class.is-valid]="registerFormControl.username.valid && registerFormControl.username.untouched" pattern="^((?!.*[^a-zA-Z\d])(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{5,20})$" [class.is-invalid]="registerFormControl.username.invalid && registerFormControl.username.touched" name="username" id="username" type="text" class="form-control mb-2 form-control-lg" autofocus required />
                                                                                     <div class="alert alert-danger mt-1" role="alert" *ngIf="registerFormControl.username.invalid && registerFormControl.username.touched">
                                                                                         <small class="text-danger" *ngIf="registerFormControl.username.errors?.required">   <i class="fa fa-remove"></i>Username is required</small>
-                                                                                        <small class="text-danger" *ngIf="registerFormControl.username.errors?.minlength"><i class="fa fa-remove"></i>Username charecters must be atleast 3 charecters</small>
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.username.errors?.minlength"><i class="fa fa-remove"></i>Username charecters must be atleast 5 charecters</small>
                                                                                         <small class="text-danger" *ngIf="registerFormControl.username.errors?.maxlength"><i  class="fa fa-remove"></i> Username charecters must be less than 20 charecters</small>
-                                                                                        <small class="text-danger" *ngIf="registerFormControl.username.errors?.forbiddenName"><i class="fa fa-remove"></i> Username is not allowed</small>
                                                                                     </div>
                                                                                 </div>
 
                                                                                 <div class="form-group">
                                                                                     <label for="firstname">First Name</label>
-                                                                                    <input type="text" formControlName="firstname" name="firstname" id="firstName" value="{{user.firstname}} " class="form-control">
+                                                                                    <input type="text" [class.is-valid]="registerFormControl.firstname.valid && registerFormControl.firstname.untouched" [class.is-invalid]="registerFormControl.firstname.invalid && registerFormControl.firstname.touched"   formControlName="firstname" name="firstname" id="firstName" value="{{user.firstname}} " class="form-control">
                                                                                     <div class="alert alert-danger mt-1" role="alert"   *ngIf="registerFormControl.firstname.invalid && registerFormControl.firstname.touched">
                                                                                         <small class="text-danger" *ngIf="registerFormControl.firstname.errors?.required"><i class="fa fa-remove"></i>FirstName is required</small>
                                                                                         <small class="text-danger"*ngIf="registerFormControl.firstname.errors?.minlength"><i class="fa fa-remove"></i>FirstName charecters must be atleast 3 charecters</small>
@@ -326,7 +326,7 @@
                                                                                     
                                                                                 <div class="form-group">
                                                                                     <label for="age">Age</label>
-                                                                                    <input type="text"  formControlName="age"  name="age" id="age" value="{{user.aboutMe.age}} " min="18" max="80" class="form-control">
+                                                                                    <input type="text"  formControlName="age"  [class.is-valid]="registerFormControl.age.valid && registerFormControl.age.untouched" [class.is-invalid]="registerFormControl.age.invalid && registerFormControl.age.touched"   name="age" id="age" value="{{user.aboutMe.age}} " min="18" max="80" class="form-control">
                                                                                     <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.age.invalid && registerFormControl.age.touched">
                                                                                         <small class="text-danger" *ngIf="registerFormControl.age.errors?.required"><i class="fa fa-remove"></i>Age is required</small>
                                                                                         <small class="text-danger" *ngIf="registerFormControl.age.errors?.minlength"><i class="fa fa-remove"></i>Age charecters must be atleast 18 charecters</small>
@@ -336,7 +336,7 @@
 
                                                                                 <div class="form-group">
                                                                                     <label for="gender">What is your Gender ? </label>
-                                                                                    <select class="form-control" formControlName="gender"   name="gender" id="gender">
+                                                                                    <select class="form-control"  [class.is-valid]="registerFormControl.gender.valid && registerFormControl.gender.untouched" [class.is-invalid]="registerFormControl.gender.invalid && registerFormControl.gender.touched"  formControlName="gender"   name="gender" id="gender">
                                                                                      <option  value="{{user.aboutMe.gender}} "  selected>{{user.aboutMe.gender}}  </option>
                                                                                       <option  data-divider="true"></option>
                                                                                       <option  option value="Male">Male</option>
@@ -350,14 +350,14 @@
                                                                         
                                                                                 <div class="form-group">
                                                                                     <label for="liveIn">Which city do you live ??</label>
-                                                                                    <input type="text"  formControlName="liveIn"  name="liveIn" id="liveIn" value="{{user.aboutMe.liveIn}} "   class="form-control">
+                                                                                    <input type="text"  formControlName="liveIn"  [class.is-valid]="registerFormControl.liveIn.valid && registerFormControl.liveIn.untouched" [class.is-invalid]="registerFormControl.liveIn.invalid && registerFormControl.liveIn.touched"  name="liveIn" id="liveIn" value="{{user.aboutMe.liveIn}} "   class="form-control">
                                                                                     <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.liveIn.invalid && registerFormControl.liveIn.touched">
                                                                                         <small class="text-danger" *ngIf="registerFormControl.liveIn.errors?.required"><i class="fa fa-remove"></i>Live In is required</small>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="education">What is your Education Level?</label>
-                                                                                    <select class="form-control" name="education" id="education">
+                                                                                    <select class="form-control" [class.is-valid]="registerFormControl.education.valid && registerFormControl.education.untouched" [class.is-invalid]="registerFormControl.educationinvalid && registerFormControl.education.touched"  name="education" id="education">
                                                                                         <option   formControlName="education"  selected value="{{user.aboutMe.education}} "  text="{{user.aboutMe.education}} " ></option>
                                                                                         <option  data-divider="true"></option>
                                                                                         <option value="High School">High School</option>
@@ -373,7 +373,7 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="country">What is your Country Name ? </label>
-                                                                                    <select formControlName="country" class="form-control" id="country" name="country">
+                                                                                    <select formControlName="country"  [class.is-valid]="registerFormControl.country.valid && registerFormControl.coutry.untouched" [class.is-invalid]="registerFormControl.country.invalid && registerFormControl.country.touched"  class="form-control" id="country" name="country">
                                                                                         <option value="{{user.aboutMe.country}} " text="{{user.aboutMe.education}} " selected ></option>
                                                                                         <option  data-divider="true"></option>
                                                                                         <option value="Afghanistan">Afghanistan</option>
@@ -630,14 +630,14 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="bio">Bio</label>
-                                                                                    <textarea class="form-control" formControlName="bio" value="{{user.aboutMe.bio}} "   name="bio" id="bio">{{user.aboutMe.education}} </textarea>
+                                                                                    <textarea class="form-control" [class.is-valid]="registerFormControl.bio.valid && registerFormControl.bio.untouched" [class.is-invalid]="registerFormControl.bio.invalid && registerFormControl.bio.touched"  formControlName="bio" value="{{user.aboutMe.bio}} "   name="bio" id="bio">{{user.aboutMe.education}} </textarea>
                                                                                     <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.bio.invalid && registerFormControl.bio.touched">
                                                                                         <small class="text-danger" *ngIf="registerFormControl.bio.errors?.required"><i class="fa fa-remove"></i>Bio is required</small>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="interests">Interests</label>
-                                                                                    <textarea class="form-control"  formControlName="interests"value="{{user.aboutMe.interests}} "  name="interests" id="interests"> {{user.aboutMe.intrests}} </textarea>
+                                                                                    <textarea class="form-control"  [class.is-valid]="registerFormControl.country.valid && registerFormControl.coutry.untouched" [class.is-invalid]="registerFormControl.country.invalid && registerFormControl.country.touched" formControlName="interests"value="{{user.aboutMe.interests}} "  name="interests" id="interests"> {{user.aboutMe.intrests}} </textarea>
                                                                                     <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.interests.invalid && registerFormControl.interests.touched">
                                                                                         <small class="text-danger" *ngIf="registerFormControl.interests.errors?.required"><i class="fa fa-remove"></i>Interests is required</small>
                                                                                     </div>
@@ -648,7 +648,7 @@
                                                                                 <h3 class="text-center">Your Appearance</h3>
                                                                                 <div class="form-group">
                                                                                     <label for="bodyType "> What is your body type ?</label>
-                                                                                    <select class="form-control" formControlName="bodyType" name="bodyType" id="bodyType ">
+                                                                                    <select class="form-control" [class.is-valid]="registerFormControl.bodyType.valid && registerFormControl.bodyType.untouched" [class.is-invalid]="registerFormControl.bodyType.invalid && registerFormControl.bodyType.touched" formControlName="bodyType" name="bodyType" id="bodyType ">
                                                                                         <option value="{{user.aboutMe.bodyType}} "    selected>{{user.aboutMe.bodyType}}</option>
                                                                                         <option  data-divider="true"></option>
                                                                                         <option value="Average">Average</option>
@@ -663,7 +663,7 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="height">What is your height ?</label>
-                                                                                    <select class="form-control autofill"  formControlName="height"  name="height" id="height" tabindex="2">
+                                                                                    <select class="form-control autofill"  [class.is-valid]="registerFormControl.height.valid && registerFormControl.height.untouched" [class.is-invalid]="registerFormControl.height.invalid && registerFormControl.height.touched" formControlName="height"  name="height" id="height" tabindex="2">
                                                                                         <option value="{{user.aboutMe.height}} "   selected> {{user.aboutMe.height}} </option>
                                                                                         <option  data-divider="true"></option>
                                                                                         <option value="91">3'</option>
@@ -733,7 +733,7 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="eye">What is your eye colour ?</label>
-                                                                                    <select class="form-control autofill"  formControlName="eyes"   name="eyes" tabindex="2" id="eye">
+                                                                                    <select class="form-control autofill" [class.is-valid]="registerFormControl.eyes.valid && registerFormControl.eyes.untouched" [class.is-invalid]="registerFormControl.eyes.invalid && registerFormControl.eyes.touched" formControlName="eyes"   name="eyes" tabindex="2" id="eye">
                                                                                         <option  value="{{user.aboutMe.eyes}} "   selected> {{user.aboutMe.eyes}}</option>
                                                                                         <option  data-divider="true"></option>
                                                                                         <option value="blue">Blue</option>
@@ -748,7 +748,7 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="hair">What is your hair color?</label>
-                                                                                    <select class="form-control autofill"  formControlName="hair"  name="hair" id="hair" tabindex="2">
+                                                                                    <select class="form-control autofill"  [class.is-valid]="registerFormControl.hair.valid && registerFormControl.hair.untouched" [class.is-invalid]="registerFormControl.hair.invalid && registerFormControl.hair.touched" formControlName="hair"  name="hair" id="hair" tabindex="2">
                                                                                         <option  value="{{user.aboutMe.hair}} "  selected>{{user.aboutMe.hair}}</option>
                                                                                         <option  data-divider="true"></option>
                                                                                         <option value="black">Black</option>
@@ -768,7 +768,7 @@
                                                                                 <h3 class="text-center">Your Lifestyle</h3>
                                                                                 <div class="form-group">
                                                                                     <label for="languages">Which Language do you know?</label>
-                                                                                    <select class="form-control" formControlName="languages"  name="languages" id="languages">
+                                                                                    <select class="form-control"  [class.is-valid]="registerFormControl.languages.valid && registerFormControl.languages.untouched" [class.is-invalid]="registerFormControl.languages.invalid && registerFormControl.languages.touched" formControlName="languages"  name="languages" id="languages">
                                                                                         <option value="{{user.aboutMe.languages}} "   selected> {{user.aboutMe.languages}} </option>
                                                                                         <option  data-divider="true"></option>
                                                                                         <option value="Afrikaans">Afrikaans</option>
@@ -852,7 +852,7 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="relationship">What is your relationship Status?</label>
-                                                                                    <select class="form-control"  formControlName="relationship"  name="relationship" id="relationship">
+                                                                                    <select class="form-control"  [class.is-valid]="registerFormControl.relationship.valid && registerFormControl.relationship.untouched" [class.is-invalid]="registerFormControl.relationship.invalid && registerFormControl.relationship.touched" formControlName="relationship"  name="relationship" id="relationship">
                                                                                         <option value="{{user.aboutMe.relationship}} " selected> {{user.aboutMe.relationship}} </option>
                                                                                         <option  data-divider="true"></option>
                                                                                         <option value="Single">Single</option>
@@ -867,7 +867,7 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="known">Known</label>
-                                                                                    <input type="text" name="known" id="known" formControlName="known"  value="{{user.aboutMe.known}} " text="{{user.aboutMe.known}} "  class="form-control">
+                                                                                    <input type="text" name="known"  [class.is-valid]="registerFormControl.known.valid && registerFormControl.known.untouched" [class.is-invalid]="registerFormControl.known.invalid && registerFormControl.known.touched" id="known" formControlName="known"  value="{{user.aboutMe.known}} " text="{{user.aboutMe.known}} "  class="form-control">
                                                                                     <div class="alert alert-danger mt-1" role="alert" *ngIf="registerFormControl.known.invalid && registerFormControl.known.touched"    >
                                                                                         <small class="text-danger" *ngIf="registerFormControl.known.errors?.required">   <i class="fa fa-remove"></i>Known Status is required</small>
                                                                                     
@@ -875,7 +875,7 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="workAs">What is your Occupation ?</label>
-                                                                                    <select class="form-control"  formControlName="occupation" name="workAs" id="workAs">
+                                                                                    <select class="form-control"  [class.is-valid]="registerFormControl.occupation.valid && registerFormControl.occupation.untouched" [class.is-invalid]="registerFormControl.occupation.invalid && registerFormControl.occupation.touched" formControlName="occupation" name="workAs" id="workAs">
                                                                                         <option value="{{user.aboutMe.workAs}} " selected> {{user.aboutMe.workAs}}</option>
                                                                                         <option  data-divider="true"></option>
                                                                                         <option value="Administrative / Secretarial / Clerical">Administrative / Secretarial / Clerical</option>
@@ -912,14 +912,14 @@
                                                                                         <option value="Unemployed">Unemployed</option>
                                                                                         <option value="Other">Other</option>
                                                                                     </select>
-                                                                                    <div class="alert alert-danger mt-1" role="alert" *ngIf="registerFormControl.workAs.invalid && registerFormControl.workAs.touched"    >
-                                                                                        <small class="text-danger" *ngIf="registerFormControl.workAs.errors?.required">   <i class="fa fa-remove"></i>Ocuupation is required</small>
+                                                                                    <div class="alert alert-danger mt-1" role="alert" *ngIf="registerFormControl.occupation.invalid && registerFormControl.occupation.touched"    >
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.occupation.errors?.required">   <i class="fa fa-remove"></i>Ocuupation is required</small>
                                                                                     
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="lookingFor" >Looking For?</label>
-                                                                                    <textarea class="form-control"  formControlName="lookingFor"  name="lookingFor" id="lookingFor" minlength="" maxlength="255" rows="5" value="{{user.aboutMe.lookingFor}} "  selected>{{user.aboutMe.intrests}}</textarea>
+                                                                                    <textarea class="form-control"  [class.is-valid]="registerFormControl.lookingFor.valid && registerFormControl.lookingFor.untouched" [class.is-invalid]="registerFormControl.lookingFor.invalid && registerFormControl.lookingFor.touched"  formControlName="lookingFor"  name="lookingFor" id="lookingFor" minlength="" maxlength="255" rows="5" value="{{user.aboutMe.lookingFor}} "  selected>{{user.aboutMe.intrests}}</textarea>
                                                                                     <div class="alert alert-danger mt-1" role="alert" *ngIf="registerFormControl.lookingFor.invalid && registerFormControl.lookingFor.touched"    >
                                                                                         <small class="text-danger" *ngIf="registerFormControl.lookingFor.errors?.required">   <i class="fa fa-remove"></i>lookingFor is required</small>
                                                                                     
@@ -927,7 +927,7 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="haveKids">Do you have kids?</label>
-                                                                                    <select class="form-control" name="haveKids"  formControlName="haveKids"  id="haveKids">
+                                                                                    <select class="form-control" [class.is-valid]="registerFormControl.kids.valid && registerFormControl.kids.untouched" [class.is-invalid]="registerFormControl.kids.invalid && registerFormControl.kids.touched"  name="haveKids"  formControlName="haveKids"  id="haveKids">
                                                                                         <option value="{{user.aboutMe.haveKids}} "   selected> {{user.aboutMe.haveKids}}</option>
                                                                                         <option  data-divider="true"></option>
                                                                                         <option value="No">No</option>
@@ -943,7 +943,7 @@
                                                                                 <div class="form-group">
                                                                                     <label for="smoke">Do you smoke ?</label>
                                                                                     <hr>
-                                                                                    <select class="form-control" formControlName="smoke"  name="smoke" id="smoke">
+                                                                                    <select class="form-control"  [class.is-valid]="registerFormControl.smoke.valid && registerFormControl.smoke.untouched" [class.is-invalid]="registerFormControl.smoke.invalid && registerFormControl.smoke.touched" formControlName="smoke"  name="smoke" id="smoke">
                                                                                         <option value="{{user.aboutMe.smoke}}" selected >{{user.aboutMe.smoke}}</option>
                                                                                         <option  data-divider="true"></option>
                                                                                         <option value="Never">Never</option>
@@ -957,7 +957,7 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="drink">Do you Drink ?</label>
-                                                                                    <select class="form-control" formControlName="drink"  name="drink" id="drink">
+                                                                                    <select class="form-control" [class.is-valid]="registerFormControl.drink.valid && registerFormControl.drink.untouched" [class.is-invalid]="registerFormControl.drink.invalid && registerFormControl.drink.touched" formControlName="drink"  name="drink" id="drink">
                                                                                         <option  data-divider="true"></option>
                                                                                         <option  value="{{user.aboutMe.drink}}"selected> {{user.aboutMe.drink}}</option>
                                                                                         <option value="Never">Never</option>

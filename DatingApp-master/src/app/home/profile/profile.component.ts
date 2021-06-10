@@ -35,6 +35,7 @@ export class ProfileComponent implements OnInit {
 
   topicName='';
   topics:any=[];
+  baseUrl = 'http://localhost:8080/api';
 
   get registerFormControl() {
     return this.userForm.controls;
@@ -111,7 +112,7 @@ export class ProfileComponent implements OnInit {
     });
 
     this.userForm = this.formBuilder.group({
-       username: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
+      username: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
       gender: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
       education: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
       country: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
@@ -239,25 +240,28 @@ countLikes(likes:any){
 
 
 deletePhoto(id:number){
-  const user= this.localStorage.retrieve('user');
-  const url = 'http://localhost:8080/api/photos/'+id +'/delete?email='+user.email;
+
+  const url = this.baseUrl+'/photos/'+id +'/delete?email='+this.user.email;
   this.http.get(url).subscribe((data)=>{
     this.spinner.hide();
     this.photoes = data;
   });
 }
+saveUser(){
 
+  const url = this.baseUrl +'/aboutme/save?';
+  
+}
 loadTopic(){
-  const user = this.localStorage.retrieve('user');
-  this.http.get('http://localhost:8080/api/topic/all?id='+user.id,{responseType:'json'}).subscribe((data)=>{
+
+  this.http.get('/topic/all?id='+this.user.id,{responseType:'json'}).subscribe((data)=>{
     this.topics =data;
   })
 }
 
 
 saveTopic(){
-  const user = this.localStorage.retrieve('user');
-  this.http.post('http://localhost:8080/api/topic/save?id='+user.id+'&topicName='+this.topicName+'&topicQuestion='+this.topicQuestion+'&topicAnswer='+this.topicAnswer,{})
+  this.http.post('/topic/save?id='+this.user.id+'&topicName='+this.topicName+'&topicQuestion='+this.topicQuestion+'&topicAnswer='+this.topicAnswer,{})
   .subscribe((data)=>{
   console.log(data);
   this.toastr.success('success','Topic added');
@@ -267,7 +271,7 @@ saveTopic(){
 
 deleteTopic(id:number){
 
-  this.http.post('http://localhost:8080/api/topic/delete?id='+id,{})
+  this.http.post(this.baseUrl+'topic/delete?id='+id,{})
     .subscribe((data)=>{
       this.toastr.success('success','Topic deleted successfully');
       this.loadTopic();
@@ -278,11 +282,11 @@ deleteTopic(id:number){
 
 sendMessage(id:number){
 
-  const  url='http://locahost:8080/api/v1/likes/save?id='+id;
+  const  url=this.baseUrl+'/v1/likes/save?id='+id;
 
   this.http.post(url,{}).subscribe((data)=>{
     this.toastr.success('success','Intro has been sent successfully');
-    const countlikeUrl = 'http://locahost:8080/api/v1/likes/users/count';
+    const countlikeUrl = this.baseUrl+'/v1/likes/users/count';
     this.http.get(countlikeUrl).subscribe((response)=>{
       this.toastr.success('sucess','');
     })

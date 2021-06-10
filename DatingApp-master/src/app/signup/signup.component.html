@@ -60,7 +60,7 @@
                         <div class="form-group">
                             <div class="form-group">
                                 <label for="password">Password: </label>
-                                <input formControlName="password" [class.is-valid]="registerFormControl.firstname.valid && registerFormControl.firstname.untouched"  pattern="^((?!.*[^a-zA-Z\d])(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{5,20})$" [class.is-invalid]="registerFormControl.password.invalid  && registerFormControl.password.touched " name="password" id="password" type="password" class="form-control mb-2 form-control-lg" required />
+                                <input formControlName="password" [class.is-valid]="registerFormControl.password.valid && registerFormControl.password.untouched"  pattern="^((?!.*[^a-zA-Z\d])(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{5,20})$" [class.is-invalid]="registerFormControl.password.invalid  && registerFormControl.password.touched " name="password" id="password" type="password" class="form-control mb-2 form-control-lg" required />
                                 <div class="alert alert-danger mt-1" role="alert" *ngIf="registerFormControl.password.invalid && registerFormControl.password.touched">
                                     <small class="text-danger" *ngIf="registerFormControl.password.errors?.required"><i class="fa fa-remove"></i>password is required</small>
                                     <small class="text-danger" *ngIf="registerFormControl.password.errors?.minlength"><i class="fa fa-remove"></i>password charecters must be atleast 3 charecters</small>
