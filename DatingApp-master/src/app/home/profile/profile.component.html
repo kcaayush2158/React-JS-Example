@@ -327,17 +327,33 @@
                                                                                 <div class="form-group">
                                                                                     <label for="age">Age</label>
                                                                                     <input type="text"  formControlName="age"  name="age" id="age" value="{{user.aboutMe.age}} " min="18" max="80" class="form-control">
+                                                                                    <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.age.invalid && registerFormControl.age.touched">
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.age.errors?.required"><i class="fa fa-remove"></i>Age is required</small>
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.age.errors?.minlength"><i class="fa fa-remove"></i>Age charecters must be atleast 18 charecters</small>
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.age.errors?.maxlength"><i class="fa fa-remove"></i> Age charecters must be less than 80 charecters</small>
+                                                                                        </div>
                                                                                 </div>
-                                                                                <label for="gender">What is your Gender ? </label>
-                                                                                <select class="form-control" formControlName="gender"   name="gender" id="gender">
-                                                                                    <option  value="{{user.aboutMe.gender}} "  selected>{{user.aboutMe.gender}}  </option>
-                                                                                    <option  data-divider="true"></option>
-                                                                                    <option value="Male">Male</option>
+
+                                                                                <div class="form-group">
+                                                                                    <label for="gender">What is your Gender ? </label>
+                                                                                    <select class="form-control" formControlName="gender"   name="gender" id="gender">
+                                                                                     <option  value="{{user.aboutMe.gender}} "  selected>{{user.aboutMe.gender}}  </option>
+                                                                                      <option  data-divider="true"></option>
+                                                                                      <option  option value="Male">Male</option>
                                                                                     <option value="Female">Female</option>
                                                                                 </select>
+                                                                                <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.gender.invalid && registerFormControl.gender.touched">
+                                                                                    <small class="text-danger" *ngIf="registerFormControl.gender.errors?.required"><i class="fa fa-remove"></i>Gender is required</small>
+                                                                                    </div>
+                                                                            </div>
+                                                                            
+                                                                        
                                                                                 <div class="form-group">
                                                                                     <label for="liveIn">Which city do you live ??</label>
-                                                                                    <input type="text"  formControlName="liveIn"  name="liveIn" id="liveIn" value="{{user.aboutMe.liveIn}} "  class="form-control">
+                                                                                    <input type="text"  formControlName="liveIn"  name="liveIn" id="liveIn" value="{{user.aboutMe.liveIn}} "   class="form-control">
+                                                                                    <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.liveIn.invalid && registerFormControl.liveIn.touched">
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.liveIn.errors?.required"><i class="fa fa-remove"></i>Live In is required</small>
+                                                                                        </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="education">What is your Education Level?</label>
@@ -351,6 +367,9 @@
                                                                                         <option value="Graduate Degree<">Graduate Degree</option>
                                                                                         <option value="PhD">PhD</option>
                                                                                     </select>
+                                                                                    <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.education.invalid && registerFormControl.education.touched">
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.education.errors?.required"><i class="fa fa-remove"></i>Education is required</small>
+                                                                                        </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="country">What is your Country Name ? </label>
@@ -603,15 +622,25 @@
                                                                                         <option value="Zaire">Zaire</option>
                                                                                         <option value="Zambia">Zambia</option>
                                                                                         <option value="Zimbabwe">Zimbabwe</option>
+                                                                                    
                                                                                     </select>
+                                                                                    <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.country.invalid && registerFormControl.country.touched">
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.country.errors?.required"><i class="fa fa-remove"></i>Country is required</small>
+                                                                                        </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="bio">Bio</label>
                                                                                     <textarea class="form-control" formControlName="bio" value="{{user.aboutMe.bio}} "   name="bio" id="bio">{{user.aboutMe.education}} </textarea>
+                                                                                    <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.bio.invalid && registerFormControl.bio.touched">
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.bio.errors?.required"><i class="fa fa-remove"></i>Bio is required</small>
+                                                                                    </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="interests">Interests</label>
                                                                                     <textarea class="form-control"  formControlName="interests"value="{{user.aboutMe.interests}} "  name="interests" id="interests"> {{user.aboutMe.intrests}} </textarea>
+                                                                                    <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.interests.invalid && registerFormControl.interests.touched">
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.interests.errors?.required"><i class="fa fa-remove"></i>Interests is required</small>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                             <!-- =============================Appearance ===========================================-->
@@ -628,6 +657,9 @@
                                                                                         <option value="Muscular">Muscular</option>
                                                                                         <option value="Slim">Slim</option>
                                                                                     </select>
+                                                                                    <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.bodyType.invalid && registerFormControl.bodyType.touched">
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.bodyType.errors?.required"><i class="fa fa-remove"></i>Body Type is required</small>
+                                                                                        </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="height">What is your height ?</label>
@@ -695,6 +727,9 @@
                                                                                         <option value="238">7'10"</option>
                                                                                         <option value="241">7'11"</option>
                                                                                     </select>
+                                                                                    <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.height.invalid && registerFormControl.height.touched">
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.height.errors?.required"><i class="fa fa-remove"></i>Height is required</small>
+                                                                                        </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="eye">What is your eye colour ?</label>
@@ -707,6 +742,9 @@
                                                                                         <option value="green">Green</option>
                                                                                         <option value="hazel">Hazel</option>
                                                                                     </select>
+                                                                                    <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.eyes.invalid && registerFormControl.bodyType.touched">
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.eyes.errors?.required"><i class="fa fa-remove"></i>Eye Colour  is required</small>
+                                                                                        </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="hair">What is your hair color?</label>
@@ -721,6 +759,9 @@
                                                                                         <option value="red">Red</option>
                                                                                         <option value="bal">Bald</option>
                                                                                     </select>
+                                                                                    <div class="alert alert-danger mt-1" role="alert"  *ngIf="registerFormControl.hair.invalid && registerFormControl.hair.touched">
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.hair.errors?.required"><i class="fa fa-remove"></i>Hair Type is required</small>
+                                                                                        </div>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
@@ -803,6 +844,11 @@
                                                                                         <option value="Welsh">Welsh</option>
                                                                                         <option value="Xhosa">Xhosa</option>
                                                                                     </select>
+
+                                                                                    <div class="alert alert-danger mt-1" role="alert" *ngIf="registerFormControl.languages.invalid && registerFormControl.languages.touched"    >
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.languages.errors?.required">   <i class="fa fa-remove"></i>Language is required</small>
+                                                                                    
+                                                                                    </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="relationship">What is your relationship Status?</label>
@@ -814,10 +860,18 @@
                                                                                         <option value="Divorced">Divorced</option>
                                                                                         <option value="Widowed">Widowed</option>
                                                                                     </select>
+                                                                                    <div class="alert alert-danger mt-1" role="alert" *ngIf="registerFormControl.relationship.invalid && registerFormControl.relationship.touched"    >
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.relationship.errors?.required">   <i class="fa fa-remove"></i>Relationship Status is required</small>
+                                                                                    
+                                                                                    </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="known">Known</label>
                                                                                     <input type="text" name="known" id="known" formControlName="known"  value="{{user.aboutMe.known}} " text="{{user.aboutMe.known}} "  class="form-control">
+                                                                                    <div class="alert alert-danger mt-1" role="alert" *ngIf="registerFormControl.known.invalid && registerFormControl.known.touched"    >
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.known.errors?.required">   <i class="fa fa-remove"></i>Known Status is required</small>
+                                                                                    
+                                                                                    </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="workAs">What is your Occupation ?</label>
@@ -858,10 +912,18 @@
                                                                                         <option value="Unemployed">Unemployed</option>
                                                                                         <option value="Other">Other</option>
                                                                                     </select>
+                                                                                    <div class="alert alert-danger mt-1" role="alert" *ngIf="registerFormControl.workAs.invalid && registerFormControl.workAs.touched"    >
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.workAs.errors?.required">   <i class="fa fa-remove"></i>Ocuupation is required</small>
+                                                                                    
+                                                                                    </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="lookingFor" >Looking For?</label>
                                                                                     <textarea class="form-control"  formControlName="lookingFor"  name="lookingFor" id="lookingFor" minlength="" maxlength="255" rows="5" value="{{user.aboutMe.lookingFor}} "  selected>{{user.aboutMe.intrests}}</textarea>
+                                                                                    <div class="alert alert-danger mt-1" role="alert" *ngIf="registerFormControl.lookingFor.invalid && registerFormControl.lookingFor.touched"    >
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.lookingFor.errors?.required">   <i class="fa fa-remove"></i>lookingFor is required</small>
+                                                                                    
+                                                                                    </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="haveKids">Do you have kids?</label>
@@ -873,6 +935,10 @@
                                                                                         <option value="Maybe">Maybe</option>
                                                                                         <option value="I Want some">I Want some</option>
                                                                                     </select>
+                                                                                    <div class="alert alert-danger mt-1" role="alert" *ngIf="registerFormControl.haveKids.invalid && registerFormControl.haveKids.touched"    >
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.haveKids.errors?.required">   <i class="fa fa-remove"></i>lookingFor is required</small>
+                                                                                    
+                                                                                    </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="smoke">Do you smoke ?</label>
@@ -884,6 +950,10 @@
                                                                                         <option value="Occasionally">Occasionally</option>
                                                                                         <option value="Regularly">Regularly</option>
                                                                                     </select>
+                                                                                    <div class="alert alert-danger mt-1" role="alert" *ngIf="registerFormControl.smoke.invalid && registerFormControl.smoke.touched"    >
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.smoke.errors?.required">   <i class="fa fa-remove"></i>Smoke  is required</small>
+                                                                                    
+                                                                                    </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="drink">Do you Drink ?</label>
@@ -894,7 +964,13 @@
                                                                                         <option value="Occasionally">Occasionally</option>
                                                                                         <option value="Regularly">Regularly</option>
                                                                                     </select>
+                                                                                    <div class="alert alert-danger mt-1" role="alert" *ngIf="registerFormControl.drink.invalid && registerFormControl.drink.touched"    >
+                                                                                        <small class="text-danger" *ngIf="registerFormControl.drink.errors?.required">   <i class="fa fa-remove"></i>Drink  is required</small>
+                                                                                    
+                                                                                    </div>
                                                                                 </div>
+                                                                                
+                                                                                
                                                                             </div>
                                                                         </div>
                                                                         <div class="modal-footer">
